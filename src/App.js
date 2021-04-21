@@ -5,6 +5,7 @@ import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react';
 import { listNotes } from './graphql/queries';
 import { createNote as createNoteMutation, deleteNote as deleteNoteMutation } from './graphql/mutations';
 
+
 const initialFormState = { name: '', description: '' }
 
 function App() {
@@ -66,11 +67,10 @@ function App() {
         placeholder="Note description"
         value={formData.description}
       />
-	  <input
-  type="file"
-  onChange={onChange}
-/>
+	  <input  type="file"  onChange={onChange}/>
+
       <button onClick={createNote}>Create Note</button>
+	  
       <div style={{marginBottom: 30}}>
         {
           notes.map(note => (
@@ -79,8 +79,8 @@ function App() {
               <p>{note.description}</p>
               <button onClick={() => deleteNote(note)}>Delete note</button>
 			  {
-        note.image && <img src={note.image} style={{width: 400}} />
-      }
+				  note.image && <img src={note.image} style={{width: 400}} />
+				  }
             </div>
           ))
         }
